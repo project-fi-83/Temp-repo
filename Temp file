@@ -1,1 +1,52 @@
-/* Some code */
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Home;
+
+class Bee
+{
+private:
+	string name;
+public:
+	Bee()
+	{
+		this->name = "";
+	}
+	Bee(string name)
+	{
+		this->name = name;
+	}
+	void Go_to_home(Home & home);
+};
+
+class Home
+{
+private:
+	friend Bee;
+	int id;
+public:
+	Home(int id)
+	{
+		this->id = id;
+	}
+
+};
+// Всегда нужно выносить метод вне класса
+void Bee::Go_to_home(Home & home)
+{
+	{
+		cout << "ID = " << home.id << endl;
+	}
+}
+
+int main()
+{
+	Home home(44);
+	Bee b1;
+	b1.Go_to_home(home);
+	system("pause");
+	return 0;
+}
+
+
