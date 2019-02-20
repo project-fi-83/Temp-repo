@@ -1,0 +1,93 @@
+#include "pch.h"
+#include <iostream>
+
+using namespace std;
+
+
+
+
+class Hero
+{
+private:
+	string name;
+	int xp;
+	int defence=0;
+	int strength;
+	int money;
+	int level;
+	int mana;
+	int damage;
+public:
+
+		Hero();
+	void Change_strenght(int value)
+	{
+		this->name = "";
+		this->strength += value;
+	}
+	
+		void Change_defence(int value)
+	{		
+		this->defence += value;
+	}
+		void Change_damage(int value)
+		{
+			this->damage += value;
+		}
+		void Change_money(int value)
+		{
+			this->money -= value;
+		}
+		void Damage() {
+			
+		}
+	~Hero();
+};
+Hero::Hero()
+{
+	this->name = "";
+	this->level = 0;
+	this->mana = 0;
+	this->money = 100000;// Можем поменять
+	this->strength = 0;
+	this->xp = 0;
+	this->defence = 0;
+	this->damage = 5;
+
+}
+
+Hero::~Hero()
+{
+}
+
+int main()
+{
+	Hero player;
+	cout << "Welcome to the shop! Choose, what you want to buy!" << endl;
+	cout << "1. Small knife (25G)                   +5 damage" << endl;
+	int knife_c = 25; 
+	cout << "2. Wooden shield (20G)                 +5 defence" << endl;
+	int shieldW_c = 20;
+	cout << "3. Long sword (150G)                   +18 damage" << endl;
+	cout << "4. Heavy shield (170G)                 +19 defence" << endl;
+	cout << "5. Book of Knowledge (200G)            +5 intelect" << endl;
+	cout << "6. Strange stick (1000G)               ???" << endl;
+	cout << "7. Heal potion (15G)                   heal 25 HP" << endl;
+	int buy_a;
+	cin >> buy_a;
+	system("cls");
+	if (buy_a == 1) {
+		cout << "You have bought a Small knife +5 damage for " << knife_c << "G." << endl;
+		player.Change_damage(5);
+		player.Change_money(knife_c);
+		system("cls");
+		}
+	else if (buy_a == 2) {
+		cout << "You have bought a Wooden shield +5 defence for " << knife_c << "G." << endl;
+		player.Change_defence(5);
+		player.Change_money(shieldW_c);
+		system("cls");
+	}
+
+	
+}
