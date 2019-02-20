@@ -1,54 +1,50 @@
-
-/* Абсолютно левй код */
 #include<iostream>
 #include<string>
 using namespace std;
 
-class Home;
 
-class Bee
+class Hero
 {
 private:
 	string name;
+	int xp;
+	int defence;
+	int strength;
+	int money;
+	int level;
+	int mana;
 public:
-	Bee()
+	Hero();
+	void Change_strenght(int value)
 	{
-		this->name = "";
+		this->strength += value;
 	}
-	Bee(string name)
+	void Change_defence(int value)
 	{
-		this->name = name;
+		this->defence += value;
 	}
-	void Go_to_home(Home & home);
+	~Hero();
 };
 
-class Home
-{
-private:
-	friend Bee;
-	int id;
-public:
-	Home(int id)
-	{
-		this->id = id;
-	}
 
-};
-// Всегда нужно выносить метод вне класса
-void Bee::Go_to_home(Home & home)
-{
-	{
-		cout << "ID = " << home.id << endl;
-	}
-}
 
 int main()
 {
-	Home home(44);
-	Bee b1;
-	b1.Go_to_home(home);
 	system("pause");
 	return 0;
 }
 
+Hero::Hero()
+{
+	this->name = "";
+	this->level = 0;
+	this->mana = 0;
+	this->money = 100000;// Можем поменять
+	this->strength = 0;
+	this->xp = 0;
+	this->defence = 0;
+}
 
+Hero::~Hero()
+{
+}
