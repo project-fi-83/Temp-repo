@@ -1,0 +1,75 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+class Hero
+{
+private:
+	string name;
+	int xp;
+	int defence;
+	int strength;
+	int money;
+	int level;
+	int mana;
+public:
+	Hero();
+	void Change_strenght(int value)
+	{
+		this->strength += value;
+	}
+	void Change_defence(int value)
+	{
+		this->defence += value;
+	}
+	~Hero();
+};
+
+
+
+int main()
+{
+	system("pause");
+	return 0;
+}
+
+Hero::Hero()
+{
+	this->name = "";
+	this->level = 0;
+	this->mana = 0;
+	this->money = 100000;// РњРѕР¶РµРј РїРѕРјРµРЅСЏС‚СЊ
+	this->strength = 0;
+	this->xp = 0;
+	this->defence = 0;
+}
+
+Hero::~Hero()
+{
+}
+
+
+
+int main()
+{
+	cout << "Добро пожаловать в тестовый магазин! Выберите, что вы хотите купить!" << endl;
+	cout << "1. Маленький нож (25G)            +5 к урону" << endl;
+	int knife_c = 25;
+	cout << "2. Деревяный щит (20G)            +5 к защите" << endl;
+	int shieldW_c = 20;
+	cout << "3. Длинный меч (150G)             +18 к урону" << endl;	
+	cout << "4. Тяжелый щит (170G)             +19 к защите" << endl;
+	cout << "5. Книга знаний (200G)            +5 к интелекту" << endl;
+	cout << "6. Странный скипетр (1000G)       ???" << endl;
+	cout << "7. Зелье здоровья (15G)           восстанавливает 25 здоровья" << endl;
+	int buy_a;
+	cin >> buy_a;
+	if (buy_a = 1) {
+		cout<<"Вы купили Маленький нож +5 к урону за "<<knife_c<<"G."<<endl;
+	}
+
+
+
+
+}
