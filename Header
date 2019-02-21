@@ -1,0 +1,17 @@
+#include "Header.h"
+using namespace std;
+
+
+int main()
+{
+	Hero hero;
+	Wolf wolf;
+	for (int i = 0; i < 3; i++)
+	{
+		wolf.Attack(hero, &wolf);
+	}
+	hero.Show_xp();
+	
+	system("pause");
+	return 0;
+}
