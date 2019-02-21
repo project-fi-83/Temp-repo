@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+
+string Start_combat(Hero hero Evil enemy){
+	double k;
+	string combatResult;
+	while(hero.xp<=0 || enemy.xp<=0){
+		cout << "Your turn. Select action:" << endl << "1. Attack" << endl << "2. Skill"<< endl << "3. Item" << endl;
+		cin >> k;
+		switch(k){
+			case 1:
+				double dealtDamage = hero.strength/enemy.defence 
+				//для dealt damage нужна формула просчёта наносимого урона, в класс Hero нужен метод с аргументом Evil.defence
+				enemy.Set_hp(dealtDamage)
+				cout << enemy.name << " " << enemy.get_RemainingHP() << "HP" << endl;
+				break;
+			case 2:
+				double dealtDamage = hero.UseSkill();
+				if (dealtDamage!=0){
+					cout << enemy.getName() << " " << enemy.get_RemainingHP() << "HP" << endl;
+					break;
+				}
+			case 3:
+				double dealtDamage = hero.UseItem();
+				if (dealtDamage!=0){
+					cout << enemy.getName() << " " << enemy.get_RemainingHP() << "HP" << endl;
+					break;
+				}
+		}
+		
+		if(enemy.getHP() <= 0){
+			return "win";
+			enemy.~Evil();
+		}
+		
+		k = enemy.getDamage();
+		hero.setHP(k);
+		cout << "Recieved " << k << "damage" << endl << hero.get_RemainingHP() << endl;
+		
+		if(hero.getHP <= 0){
+			return "lose";
+		}
+	}
+}
