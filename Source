@@ -1,0 +1,76 @@
+#include<iostream>
+#include<string>
+#include "Header.h"
+using namespace std;
+////////////////////////////////////////////////////////////
+void Hero::Change_strenght(int value)
+{
+	this->name = "";
+	this->strength += value;
+}
+void Hero::Change_xp(int x)
+{
+	this->xp -= x;
+}
+void Hero::Change_defence(int value)
+{
+	this->defence += value;
+}
+void Hero::Change_damage(int value)
+{
+	this->damage += value;
+}
+void Hero::Change_money(int value)
+{
+	this->money -= value;
+}
+void Hero::Show_xp()
+{
+	cout << "XP = " << this->xp << endl;
+}
+
+Hero::Hero()
+{
+	this->name = "";
+	this->level = 0;
+	this->mana = 0;
+	this->money = 100000;
+	this->strength = 0;
+	this->xp = 1000;
+	this->defence = 50;
+	this->damage = 5;
+}
+Hero::~Hero()
+{}
+
+///////////////////////////////////////////////////////////////
+void Evil::Attack(Hero & h, Evil * evil)
+{
+
+}
+Evil::Evil()
+{
+	this->xp = 0;
+	this->name = "";
+	this->damage = 0;
+	this->defence = 0;
+	this->price_for_killing = 0;
+}
+////////////////////////////////////////////////////////////////////
+double Evil::Get_damage()
+{
+	return this->damage;
+}
+Wolf::Wolf()
+ {
+	 this->damage = 200;
+	 this->name = "Wolf level 2";
+ }
+ void Wolf::Attack(Hero & h, Evil * evil)
+ {
+	 int x = evil->Get_damage() - 0.2*h.Get_defence();
+	 h.Change_xp(x);
+ }
+
+
+
