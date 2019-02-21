@@ -3,7 +3,8 @@
 
 using namespace std;
 
-
+class Hero;
+void menu(Hero hero);
 
 
 class Hero
@@ -11,36 +12,82 @@ class Hero
 private:
 	string name;
 	int xp;
-	int defence=0;
+	int defence = 0;
 	int strength;
 	int money;
 	int level;
 	int mana;
 	int damage;
+	bool knife_e;
+	bool woodenshield_e;
+	bool sword_e;
+
 public:
 
-		Hero();
+	Hero();
 	void Change_strenght(int value)
 	{
 		this->name = "";
 		this->strength += value;
 	}
-	
-		void Change_defence(int value)
-	{		
+
+	void Change_defence(int value)
+	{
 		this->defence += value;
 	}
-		void Change_damage(int value)
-		{
-			this->damage += value;
+	void Change_damage(int value)
+	{
+		this->damage += value;
+	}
+	void Change_moneyM(int value)
+	{
+		this->money -= value;
+	}
+	void Change_moneyP(int value)
+	{
+		this->money += value;
+	}
+	void Damage() {
+
+	}
+	int Get_money()
+	{
+		return this->money;
+	}
+	int check_inv(int a) {
+		switch (a){
+		case 1:
+			if(knife_e==true){
+				
+				return 0;
+			}
+			else {
+				knife_e = true;
+				return 1;
+				break;
+			}
+		case 2:
+			if (woodenshield_e == true) {
+
+				return 0;
+			}
+			else {
+				woodenshield_e = true;
+				return 1;
+				break;
+			}
+		case 3:
+			if (sword_e == true) {
+
+				return 0;
+			}
+			else {
+				sword_e = true;
+				return 1;
+				break;
+			}
 		}
-		void Change_money(int value)
-		{
-			this->money -= value;
-		}
-		void Damage() {
-			
-		}
+	}
 	~Hero();
 };
 Hero::Hero()
@@ -48,11 +95,14 @@ Hero::Hero()
 	this->name = "";
 	this->level = 0;
 	this->mana = 0;
-	this->money = 100000;// Можем поменять
+	this->money = 100000;
 	this->strength = 0;
 	this->xp = 0;
 	this->defence = 0;
-	this->damage = 5;
+	this->damage = 0;
+	this->knife_e = false;
+	this->woodenshield_e = false;
+	this->sword_e = false;
 
 }
 
@@ -63,31 +113,100 @@ Hero::~Hero()
 int main()
 {
 	Hero player;
-	cout << "Welcome to the shop! Choose, what you want to buy!" << endl;
-	cout << "1. Small knife (25G)                   +5 damage" << endl;
-	int knife_c = 25; 
-	cout << "2. Wooden shield (20G)                 +5 defence" << endl;
+	int knife_c = 25;
 	int shieldW_c = 20;
-	cout << "3. Long sword (150G)                   +18 damage" << endl;
-	cout << "4. Heavy shield (170G)                 +19 defence" << endl;
-	cout << "5. Book of Knowledge (200G)            +5 intelect" << endl;
-	cout << "6. Strange stick (1000G)               ???" << endl;
-	cout << "7. Heal potion (15G)                   heal 25 HP" << endl;
+	int sword_c = 150;
 	int buy_a;
-	cin >> buy_a;
-	system("cls");
-	if (buy_a == 1) {
-		cout << "You have bought a Small knife +5 damage for " << knife_c << "G." << endl;
-		player.Change_damage(5);
-		player.Change_money(knife_c);
-		system("cls");
-		}
-	else if (buy_a == 2) {
-		cout << "You have bought a Wooden shield +5 defence for " << knife_c << "G." << endl;
-		player.Change_defence(5);
-		player.Change_money(shieldW_c);
-		system("cls");
-	}
+	do
+	{
+		menu(player);
+		cin >> buy_a;
+		switch (buy_a)
+		{
+		case 1:
+			if (player.check_inv(1)==1) {
+				system("cls");
+				
+				cout << "You have bought a Small knife +5 damage for " << knife_c << "G." << endl;
+				player.Change_damage(5);
+				player.Change_moneyM(knife_c);
+				
+				break;
+			}
+			else if (player.check_inv(1) == 0) {
+				system("cls");
+				cout << "You already have this item!" << endl;
+				break;
+			}
+			else {
+				break;
+			}
+			
+		case 2:
+			if (player.check_inv(2) == 1) {
+				system("cls");
 
-	
+				cout << "You have bought a Wooden shield +5 damage for " << knife_c << "G." << endl;
+				player.Change_defence(5);
+				player.Change_moneyM(shieldW_c);
+
+				break;
+			}
+			else if (player.check_inv(2) == 0) {
+				system("cls");
+				cout << "You already have this item!" << endl;
+				break;
+			}
+			else {
+				break;
+			}
+		default:
+			system("cls");
+			cout << "Wrong number!" << endl;
+			break;
+		case 3:
+			if (player.check_inv(3) == 1) {
+				system("cls");
+
+				cout << "You have bought a Long sword +18 damage for " << knife_c << "G." << endl;
+				player.Change_damage(18);
+				player.Change_moneyM(sword_c);
+
+				break;
+			}
+			else if (player.check_inv(3) == 0) {
+				system("cls");
+				cout << "You already have this item!" << endl;
+				break;
+			}
+			else {
+				break;
+			}
+		
+		}
+
+	} while (buy_a != 8);
+
+
+	system("cls");
+
+
+
 }
+
+void menu(Hero hero)
+{
+	static int count = 0;
+	count++;
+	if (count == 1) cout << "Welcome to the shop!" << endl;
+	cout << "Choose, what you want to buy!\t\t Your balance :  " << hero.Get_money() << endl;
+	cout << "1. Small knife (25G)\t +5 damage" << endl;
+	cout << "2. Wooden shield (20G)\t +5 defence" << endl;
+	cout << "3. Long sword (150G)\t +18 damage" << endl;
+	cout << "4. Heavy shield (170G)\t +19 defence" << endl;
+	cout << "5. Book of Knowledge (200G)\t +5 intelect" << endl;
+	cout << "6. Strange stick (1000G)\t ???" << endl;
+	cout << "7. Heal potion (15G)\t heal 25 HP" << endl;
+	cout << " 8. Finish " << endl;
+}
+
