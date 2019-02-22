@@ -11,7 +11,7 @@ class Hero
 {
 private:
 	string name;
-	int xp;
+	int hp;
 	int defence = 0;
 	int strength;
 	int money;
@@ -142,10 +142,26 @@ public:
 				return 0;
 				break;
 			}
+		default:
+			break;
+
+		
 		}
+		
 	}
+	friend void statistics(Hero h);
 	~Hero();
 };
+void statistics(Hero h) {
+	system("cls");
+	cout << "Level: " << h.level << endl;
+	cout << "HP: " << h.hp << endl;
+	cout << "Money: " << h.money << endl;
+	cout << "Strength: " << h.strength << endl;
+	cout << "Defence: " << h.defence << endl;
+	cout << "Intelect: " << h.intelect << endl;
+	cout << "Damage: " << h.damage << endl;
+}
 Hero::Hero()
 {
 	this->name = "";
@@ -153,7 +169,7 @@ Hero::Hero()
 	this->mana = 0;
 	this->money = 100000;
 	this->strength = 0;
-	this->xp = 0;
+	this->hp = 0;
 	this->defence = 0;
 	this->damage = 0;
 	this->intelect = 0;
@@ -347,7 +363,7 @@ void menu(Hero hero)
 	cout << "4. Heavy shield (170G)\t +19 defence" << endl;
 	cout << "5. Book of Knowledge (200G)\t +5 intelect" << endl;
 	cout << "6. Strange stick (1000G)\t ???" << endl;
-	cout << "7. Heal potion (15G)\t heal 25 HP" << endl;
+	cout << "7. Heal potion (15G)\t heal 25 HP (5 max)" << endl;
 	cout << " 8. Finish " << endl;
 }
 
