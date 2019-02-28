@@ -14,8 +14,8 @@ Evil::Evil()
 
 Evil::Evil(double x, string n, double dd, double df, double pfk)
 {
-	this->xp = x;
 	this->name = n;
+	this->xp = x;
 	this->damage = dd;
 	this->defence = df;
 	this->price_for_killing = pfk;
