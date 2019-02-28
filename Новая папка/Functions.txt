@@ -34,10 +34,10 @@ void Fight(Hero & hero, Evil * enemy)
 		case 1:
 			count_for_fight++;
 			system("cls");
-			cout << " Before fighting " << endl << endl;
+			cout << " Before fight: " << endl << endl;
 			Condition(hero, enemy);
-			cout << "\n Fiting..." << endl << endl;
-			cout << " After fighting " << endl << endl;
+			cout << "\n Fighting..." << endl << endl;
+			cout << " After fight: " << endl << endl;
 			hero.Attack(enemy);
 			Condition(hero, enemy);
 			break;
