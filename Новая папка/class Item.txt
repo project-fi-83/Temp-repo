@@ -1,0 +1,62 @@
+class Item
+{
+	private:
+		bool obtained;
+		string name;
+		string description;
+		
+		double hpbuff;
+		double dmgbuff;
+		double defbuff;
+	public:
+		Item::Item();
+		Item::Item(const Item& i);
+		Item::~Item();
+		string getDescription();
+		string getName();
+		void setBuffs(double hp, double dmg, double def);
+		void Equip(Hero.h);
+}
+
+Item::Item();
+{
+	obtained = false;
+	name = "noname";
+	description = "nodescription";
+	hpbuff = 0;
+	dmgbuff = 0;
+	defbuff = 0;
+}
+
+Item::Item(string nm, string dsc)
+{
+	name = nm;
+	description = dsc;
+}
+
+Item::~Item(){}
+
+string getDescription()
+{
+	return description;
+}
+
+string getName()
+{
+	return name;
+}
+
+void setBuffs(double hp, double dmg, double def)
+{
+	hpbuff = hp;
+	dmgbuff = dmg;
+	defbuff = def;
+}
+
+void Equip(Hero hero)
+{
+	hero.xp += hpbuff;
+	hero.dmg += dmgbuff;
+	hero.def += defbuff;
+	obtained = true;
+}
