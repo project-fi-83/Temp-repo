@@ -12,6 +12,15 @@ Evil::Evil()
 	this->price_for_killing = 0;
 }
 
+Evil::Evil(double x, string n, double dd, double df, double pfk)
+{
+	this->xp = x;
+	this->name = n;
+	this->damage = dd;
+	this->defence = df;
+	this->price_for_killing = pfk;
+}
+
 Evil::Evil(const Evil& e)
 {
 	xp = e.xp;
