@@ -1,0 +1,4 @@
+Evil objname(string name, double xp, double dmg, double def, double priceforkill)
+Evil wolf("Wolf lvl 2", 300, 200, 150, 30);
+Evil goblin("Goblin lvl 3", 200, 250, 100, 35);
+Evil raviolliMonster("Raviolli monster lvl 7", 400, 500, 300, 100);
