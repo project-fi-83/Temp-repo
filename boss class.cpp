@@ -1,25 +1,45 @@
+#include "Header.h"
+#include <iostream>
+using namespace std;
 
 class boss {
 private:
 	int id; //1- lowest, 3 - final boss
 	string name; //name
-	int hp;
+	double hp;
 	int defence;
 	int damage;
 	int reward_c; // money reward
-	int reward_xp; // xp reward
+	
 public:
 	boss();
-	void attack(Hero h) {
-		//Calculates attack of monster
-	}
-	void death(Hero h) {
-		//Monster is dead
+	void setboss() {
 
 	}
-	void lose() {
-		//Lose of the Hero
+	void getboss() {
+
 	}
+	void attack(Hero h) {
+		double at = this->damage - 0.6*h.Get_defence();
+		double af = h.Get_damage() - 0.6*this->defence;
+		h.Change_xp(at);
+		this->hp -= af;
+		
+	}
+	void death(Hero h) {
+		if (this->hp <= 0) {
+			cout << "You win "<< this->name<<"!" << endl;
+			h.Change_money(this->reward_c);
+			
+			this->boss_id(2);
+		}
+		else if (h.Get_xp() <= 0) {
+			cout << "You lose!" << endl;
+
+		}
+
+	}
+	
 	void boss_id(int a) {
 		switch (a)
 		{
@@ -29,7 +49,7 @@ public:
 			this->name = "Velzevul";
 			this->hp = 1000;
 			this->reward_c = 600;
-			this->reward_xp = 450;
+			
 			this->defence = 35;
 			break;
 		case 2:
@@ -38,7 +58,7 @@ public:
 			this->name = "Velzevul2";
 			this->hp = 1800;
 			this->reward_c = 1100;
-			this->reward_xp = 750;
+			
 			this->defence = 65;
 			break;
 		case 3:
@@ -47,7 +67,7 @@ public:
 			this->name = "Velzevul3";
 			this->hp = 2900;
 			this->reward_c = 2250;
-			this->reward_xp = 1300;
+			
 			this->defence = 90;
 			break;
 		default:
@@ -69,23 +89,5 @@ boss::boss() {
 boss::~boss() {
 
 }
-void boss_create(int stage) {
-	boss boss;
-	switch (stage)
-	{
-	case 1:
-		boss.boss_id = 1;
-		boss_create(1);
-		break;
-	case 2:
-		boss.boss_id = 2;
-		boss_create(2);
-		break;
-	case 3:
-		boss.boss_id = 3;
-		boss_create(3);
-		break;
-	default:
-		break;
-	}
+
 }
