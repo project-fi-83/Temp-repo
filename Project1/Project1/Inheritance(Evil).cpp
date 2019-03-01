@@ -5,26 +5,26 @@ using namespace std;
 
 void Wolf::Die_phrase()
 {
-	cout << "You killed facking wolf " << endl;
+	cout << "You killed wolf" << endl;
 }
 
 Wolf::Wolf()
 {
 
 	this->price_for_killing = 30;
-	this->xp = 300;
-	this->defence = 150;
-	this->damage = 200;
-	this->name = "Wolf level 2";
+	this->xp = 120;
+	this->defence = 8;
+	this->damage = 10;
+	this->name = "Wolf ";
 }
 /////////////////////////////////////////////////////
 Goblin::Goblin()
 {
-	this->name = "Goblin level 3";
-	this->damage = 250;
-	this->defence = 100;
-	this->price_for_killing = 20;
-	this->xp = 200;
+	this->name = "Goblin";
+	this->damage = 21;
+	this->defence = 13;
+	this->price_for_killing = 75;
+	this->xp = 140;
 }
 
 void Goblin::Die_phrase()
@@ -34,13 +34,13 @@ void Goblin::Die_phrase()
 ///////////////////////////////////////////
 Monster::Monster()
 {
-	this->name = "Monster level 10";
-	this->damage = 500;
-	this->defence = 300;
-	this->price_for_killing = 100;
-	this->xp = 400;
+	this->name = "The unknown monster";
+	this->damage = 40;
+	this->defence = 35;
+	this->price_for_killing = 250;
+	this->xp = 350;
 }
 void Monster::Die_phrase()
 {
-	cout << "You killed monster " << endl;
+	cout << "You killed The Unknown monster " << endl;
 }

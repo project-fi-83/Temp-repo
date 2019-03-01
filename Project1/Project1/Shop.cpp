@@ -4,13 +4,13 @@
 using namespace std;
 
 void Menu(Hero player);
-	int knife_c = 25;
-	int shieldW_c = 20;
-	int sword_c = 150;
-	int shield_heavy_c = 170;
-	int book_c = 200;
-	int stick_c = 1000;
-	int heal_c = 15;
+	int knife_c = 50;
+	int shieldW_c = 40;
+	int sword_c = 200;
+	int shield_heavy_c = 190;
+	int book_c = 300;
+	int stick_c = 777;
+	int heal_c = 25;
 
 	
 	int buy_a = 0;
@@ -28,9 +28,9 @@ void Shop(Hero &player)
 				{
 					system("cls");
 
-					cout << "You have bought a Small knife +5 damage for " << knife_c << "G." << endl;
-					player.Change_damage(15);
-					player.Change_defence(5);
+					cout << "You have bought a Small knife +12 damage for " << knife_c << "G." << endl;
+					player.Change_damage(12);
+					
 					player.Change_money(knife_c);
 
 					break;
@@ -51,9 +51,9 @@ void Shop(Hero &player)
 				{
 					system("cls");
 
-					cout << "You have bought a Wooden shield +5 defence for " << shieldW_c << "G." << endl;
-					player.Change_defence(15);
-					player.Change_damage(5);
+					cout << "You have bought a Wooden shield +10 defence for " << shieldW_c << "G." << endl;
+					player.Change_defence(10);
+					
 					player.Change_money(shieldW_c);
 
 					break;
@@ -71,9 +71,9 @@ void Shop(Hero &player)
 				if (player.Check_inv(3) == 1) {
 					system("cls");
 
-					cout << "You have bought a Long sword +18 damage for " << sword_c << "G." << endl;
-					player.Change_damage(18);
-					player.Change_damage(10);
+					cout << "You have bought a Long sword +35 damage for " << sword_c << "G." << endl;
+					player.Change_damage(35);
+					
 					player.Change_money(sword_c);
 
 					break;
@@ -90,10 +90,10 @@ void Shop(Hero &player)
 				if (player.Check_inv(4) == 1) {
 					system("cls");
 
-					cout << "You have bought a Heavy shield +19 defence for " << shield_heavy_c << "G." << endl;
-					player.Change_defence(19);
-					player.Change_damage(10);
-					player.Change_intelligence(4);
+					cout << "You have bought a Heavy shield +35 defence for " << shield_heavy_c << "G." << endl;
+					player.Change_defence(35);
+					
+					
 					player.Change_money(shield_heavy_c);
 
 					break;
@@ -110,10 +110,10 @@ void Shop(Hero &player)
 				if (player.Check_inv(5) == 1) {
 					system("cls");
 
-					cout << "You have bought a Book of knowledge +5 intelect for " << book_c << "G." << endl;
-					player.Change_defence(30);
-					player.Change_intelligence(50);
-					player.Change_mana(45);
+					cout << "You have bought a Book of knowledge +20 intelect for " << book_c << "G." << endl;
+					
+					player.Change_intelligence(20);
+					
 					player.Change_money(book_c);
 
 					break;
@@ -131,10 +131,10 @@ void Shop(Hero &player)
 					system("cls");
 
 					cout << "You have bought a Strange stick  for " << stick_c << "G." << endl;
-					player.Change_damage(50);
-					player.Change_defence(30);
+					player.Change_damage(100);
+					player.Change_defence(100);
 					player.Change_intelligence(100);
-					player.Change_mana(23);
+					player.Change_mana(200);
 					player.Change_money(stick_c);
 
 					break;

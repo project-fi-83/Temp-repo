@@ -86,23 +86,21 @@ double Hero::HP_info_level()
 	switch (this->level)
 	{
 	case 1:
-		return 1000;
+		return 100;
 	case 2:
-		return 2000;
+		return 120;
 	case 3:
-		return 3000;
+		return 140;
 	case 4:
-		return 4000;
+		return 160;
 	case 5:
-		return 5000;
+		return 200;
 	case 6:
-		return 6000;
+		return 230;
 	case 7:
-		return 7000;
+		return 260;
 	case 8:
-		return 8000;
-	case 9:
-		return 9000;
+		return 300;
 	default:
 		break;
 	}
@@ -114,28 +112,28 @@ void Hero::Regulate_hp()
 	switch (this->level)
 	{
 	case 1:
-		this->xp = 1000;
+		this->xp = 100;
 		break;
 	case 2:
-		this->xp = 2000;
+		this->xp = 120;
 		break;
 	case 3:
-		this->xp = 3000;
+		this->xp = 140;
 		break;
 	case 4:
-		this->xp = 4000;
+		this->xp = 160;
 		break;
 	case 5:
-		this->xp = 5000;
+		this->xp = 200;
 		break;
 	case 6:
-		this->xp = 6000;
+		this->xp = 230;
 		break;
 	case 7:
-		this->xp = 7000;
+		this->xp = 260;
 		break;
 	case 8:
-		this->xp = 8000;
+		this->xp = 300;
 		break;
 	default:
 		break;
@@ -151,11 +149,11 @@ void Hero::Attack(Evil * enemy)
 	double price_for_attack;
 
 
-	uron_to_enemy = this->damage - 0.1*enemy->Get_defence();
+	uron_to_enemy = this->damage - 0.3*enemy->Get_defence();
 	count_for_level += uron_to_enemy;
 	this->Level_control();
-	uron_to_hero = enemy->Get_damage() - 0.1*this->defence;
-	price_for_attack = enemy->Get_price_for_killing() / 50;
+	uron_to_hero = enemy->Get_damage() - 0.3*this->defence;
+	price_for_attack = enemy->Get_price_for_killing() / 25;
 
 
 	enemy->Change_xp(uron_to_enemy);
@@ -171,7 +169,7 @@ void Hero::Use_health_point()
 	{
 		this->health_points--;
 		cout << " Left : " << this->health_points << " health_points" << endl;
-		this->xp += 300;
+		this->xp += 15;
 		if (this->xp > this->HP_info_level())
 		{
 			this->Regulate_hp();
@@ -190,41 +188,41 @@ Hero::Hero(string name)
 	this->health_points = 0;
 	this->name = name;
 	this->level = 1;
-	this->mana = 20;
-	this->intelligence = 40;
-	this->money = 100000;
-	this->xp = 1000;
-	this->defence = 50;
-	this->damage = 100;
+	this->mana = 15;
+	this->intelligence = 5;
+	this->money = 150;
+	this->xp = 100;
+	this->defence = 6;
+	this->damage = 15;
 }
 
 void Hero::Level_control()
 {
-	if (count_for_level > 500 && count_for_level <= 1000)
+	if (count_for_level > 100 && count_for_level <= 200)
 	{
 		this->level = 2;
 	}
-	if (count_for_level > 1000 && count_for_level <= 2000)
+	if (count_for_level > 200 && count_for_level <= 350)
 	{
 		this->level = 3;
 	}
-	if (count_for_level > 2000 && count_for_level <= 3500)
+	if (count_for_level > 350 && count_for_level <= 500)
 	{
 		this->level = 4;
 	}
-	if (count_for_level > 3500 && count_for_level <= 5000)
+	if (count_for_level > 500 && count_for_level <= 750)
 	{
 		this->level = 5;
 	}
-	if (count_for_level > 5000 && count_for_level <= 7000)
+	if (count_for_level > 750 && count_for_level <= 1000)
 	{
 		this->level = 6;
 	}
-	if (count_for_level > 7000 && count_for_level <= 9500)
+	if (count_for_level > 1000 && count_for_level <= 1500)
 	{
 		this->level = 7;
 	}
-	if (count_for_level > 9500 && count_for_level <= 12000)
+	if (count_for_level > 1500 && count_for_level <= 2500)
 	{
 		this->level = 8;
 	}
